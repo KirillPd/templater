@@ -1,20 +1,22 @@
 let Templater = {
+    components: {},
+    addTag: function (tag, template) {
+        if (typeof tag === 'undefined' || typeof template === 'undefined') return;
+
+        this.components[tag] = template;
+    },
     run: function () {
-        let elements = document.getElementsByTagName('bootstrap_button'),
-            length = elements.length;
+        console.log(this.components);
 
-        if (!length) return;
+        for (let component in this.components) {
+            let elements = document.getElementsByTagName(component),
+                length = elements.length;
 
-        for(let i = 0; i < length; i++) {
-          let el = elements[0],
-              elInnerHtml = el.innerHTML,
-              newElement = document.createElement('button');
+            if (!length) continue;
 
-          newElement.setAttribute('type', 'submit');
-          newElement.className = 'btn btn-default';
-          newElement.innerHTML = elInnerHtml.replace(/\s/g, '').length !== 0 ?elInnerHtml : 'Some Text';
-
-          el.parentNode.replaceChild(newElement, el);
-        }       
+            for (let i = 0; i < length; i++) {
+                elements[0].outerHTML = this.components[component];
+            }
+        }
     }
 };
