@@ -1,12 +1,67 @@
 <html>
-  <head></head>
-  <body>
-    <bootstrap_button>
-      Some Text
-    </bootstrap_button>
-    <script src="templater.js"></script>
-    <script>
-        Templater.run();
-    </script> 
-  </body>
+
+<head>
+  <style>
+    .btn {
+      color: #fff;
+    }
+
+    .btn--red {
+      background-color: red;
+    }
+
+    .btn--orange {
+      background-color: orange;
+    }
+
+    .btn--blue {
+      background-color: blue;
+    }
+
+    .btn--default {
+      display: inline-block;
+      padding: 5px;
+      border-radius: 4px;
+      border: 1px solid blue;
+      background-color: skyblue;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <bootstrap_button class="btn btn--red some-class" type="submit" aria-label="Don't use it!">
+    Some Text123
+  </bootstrap_button>
+  <bootstrap_button class="btn btn--orange some-class" type="submit" aria-label="Use this one!">
+    Nice button
+  </bootstrap_button>
+  <bootstrap_button class="btn btn--blue some-class" type="submit" aria-label="Use this one!">
+    <span>Heyaaa!</span>
+  </bootstrap_button>
+  <bootstrap_link>
+    Custom link
+  </bootstrap_link>
+
+  <script src="templater.js"></script>
+  <script>
+    Templater.addTag(
+      'bootstrap_button',
+      '<button class="{{class}}" type="{{type}}" aria-label="{{aria-label}}">' +
+      '{{html}}' +
+      '</button>'
+    );
+
+    Templater.addTag(
+      'bootstrap_link',
+      '<a class="btn btn--default" href="#" role="button">' +
+      'Some Another Text' +
+      '</a>'
+    );
+
+
+    Templater.run();
+  </script>
+</body>
+
 </html>
