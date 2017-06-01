@@ -2,3 +2,5 @@ bower_components
 node_modules
 .idea
 .history
+.DS_Store
+angular2
