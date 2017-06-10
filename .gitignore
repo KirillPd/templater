@@ -3,4 +3,5 @@ node_modules
 .idea
 .history
 .DS_Store
-angular2
+src/templater.js
+.idea
