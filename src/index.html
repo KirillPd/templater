@@ -1,12 +1,33 @@
 <html>
-  <head></head>
-  <body>
-    <bootstrap_button>
-      Some Text
-    </bootstrap_button>
-    <script src="templater.js"></script>
-    <script>
-        Templater.run();
-    </script> 
-  </body>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="templater.js"></script>
+</head>
+
+<body>
+  <section id="bootstrap-templates">
+    <button type="submit" class="some-class">
+        Bootstrap Button
+      </button>
+  </section>
+  <section id="foundation-templates">
+    <button type="submit" class="some-class">Foundation Button
+      </button>
+  </section>
+  <script>
+    $('#bootstrap-templates').templater({
+      tags: {
+        'button': '<button class="btn btn-default {{class}}" type="{{type}}">{{html}}</button>'
+      }
+    });
+
+    $('#foundation-templates').templater({
+      tags: {
+        'button': '<button class="button {{class}}" type="{{type}}">{{html}}</button>'
+      }
+    });
+  </script>
+</body>
+
 </html>
