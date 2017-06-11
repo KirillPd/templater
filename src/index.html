@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
   <script src="templater.js"></script>
 </head>
 
@@ -16,17 +16,19 @@
       </button>
   </section>
   <script>
-    $('#bootstrap-templates').templater({
-      tags: {
-        'button': '<button class="btn btn-default {{class}}" type="{{type}}">{{html}}</button>'
-      }
-    });
+    (function ($) {
+      $('#bootstrap-templates').templater({
+        tags: {
+          'button': '<button class="btn btn-default {{class}}" type="{{type}}">{{html}}</button>'
+        }
+      });
 
-    $('#foundation-templates').templater({
-      tags: {
-        'button': '<button class="button {{class}}" type="{{type}}">{{html}}</button>'
-      }
-    });
+      $('#foundation-templates').templater({
+        tags: {
+          'button': '<button class="button {{class}}" type="{{type}}">{{html}}</button>'
+        }
+      });
+    })(jQuery);
   </script>
 </body>
 
