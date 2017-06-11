@@ -3,5 +3,4 @@ node_modules
 .idea
 .history
 .DS_Store
-src/templater.js
 .idea
