@@ -9,36 +9,32 @@
     });
   }
 
-  function run($el, tag, template) {
-    let $elements = $el.find(tag),
-      el;
+  function run(parent, tag, template) {
+    let child = parent.querySelector(tag);
 
-    if (!$elements.length) {
+    if (child === null) {
       return;
     }
 
-    el = $elements[0];
-    el.outerHTML = render(template, el);
-    run($el, tag, template);
+    run(child, tag, template);
+    child.outerHTML = render(template, child);
   }
 
-  function findTags($el, tags) {
+  function findTags(element, tags) {
     Object.keys(tags).map(function (key) {
       if (tags.hasOwnProperty(key)) {
-        run($el, key, tags[key]);
+        run(element, key, tags[key]);
       }
     });
   }
 
   $.fn.templater = function (options) {
     return this.each(function (index, el) {
-      let $el = $(el);
-
       if (typeof options === 'undefined' || typeof options.tags === 'undefined') {
         return;
       }
 
-      findTags($el, options.tags);
+      findTags(el, options.tags);
     });
   }
 })(jQuery);
