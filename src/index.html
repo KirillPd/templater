@@ -1,11 +1,66 @@
 <html>
-  <head></head>
-  <body>
-    <panel heading="Outer Panel">
-        <div>Some outer content</div>
-        <panel heading="Inner Panel">
-            <div>Some Inner content</div>
+
+<head>
+  <title>stage-5</title>
+  <script src="../bower_components/jquery/dist/jquery.min.js" defer></script>
+  <script src="templater.js" defer></script>
+  <style>
+    .btn {
+      color: #fff;
+    }
+
+    .btn--red {
+      background-color: red;
+    }
+
+    .btn--orange {
+      background-color: orange;
+    }
+
+    .btn--blue {
+      background-color: blue;
+    }
+
+    .btn--default {
+      display: inline-block;
+      padding: 5px;
+      border-radius: 4px;
+      border: 1px solid blue;
+      background-color: skyblue;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="super-block">
+    <super-child-strong>i'm super child!</super-child-strong>
+  </div>
+  <super-child-strong>i'm super child!</super-child-strong>
+  <panel heading="Outer Panel">
+    <div>Some outer content</div>
+    <panel heading="Inner Panel">
+      <div>Some Inner content</div>
+      <bootstrap_button class="btn btn--red some-class" type="submit" aria-label="Don't use it!">
+        Some Text123
+        <panel heading="Panel inside a button">
+          Hello there! :D
         </panel>
+      </bootstrap_button>
     </panel>
-  </body>
+  </panel>
+  <bootstrap_button class="btn btn--red some-class" type="submit" aria-label="Don't use it!">
+    Some Text123
+  </bootstrap_button>
+  <bootstrap_button class="btn btn--orange some-class" type="submit" aria-label="Use this one!">
+    Nice button
+  </bootstrap_button>
+  <bootstrap_button class="btn btn--blue some-class" type="submit" aria-label="Use this one!">
+    <span>Heyaaa!</span>
+  </bootstrap_button>
+  <bootstrap_link>
+    Custom link
+  </bootstrap_link>
+</body>
+
 </html>
