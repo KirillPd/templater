@@ -1,12 +1,11 @@
 <html>
   <head></head>
   <body>
-    <bootstrap_button>
-      Some Text
-    </bootstrap_button>
-    <script src="templater.js"></script>
-    <script>
-        Templater.run();
-    </script> 
+    <panel heading="Outer Panel">
+        <div>Some outer content</div>
+        <panel heading="Inner Panel">
+            <div>Some Inner content</div>
+        </panel>
+    </panel>
   </body>
 </html>
