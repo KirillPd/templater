@@ -1,9 +1,8 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-  <title>stage-5</title>
-  <script src="../bower_components/jquery/dist/jquery.min.js" defer></script>
-  <script src="templater.js" defer></script>
+  <title>Templater</title>
   <style>
     .btn {
       color: #fff;
@@ -42,10 +41,13 @@
     <panel heading="Inner Panel">
       <div>Some Inner content</div>
       <bootstrap_button class="btn btn--red some-class" type="submit" aria-label="Don't use it!">
-        Some Text123
-        <panel heading="Panel inside a button">
-          Hello there! :D
-        </panel>
+        Some Text1
+      </bootstrap_button>
+      <bootstrap_button class="btn btn--red some-class" type="submit" aria-label="Don't use it!">
+        Some Text2
+      </bootstrap_button>
+      <bootstrap_button class="btn btn--red some-class" type="submit" aria-label="Don't use it!">
+        Some Text3
       </bootstrap_button>
     </panel>
   </panel>
@@ -61,6 +63,23 @@
   <bootstrap_link>
     Custom link
   </bootstrap_link>
+  <script src="../dist/templater.min.js"></script>
+  <script>
+    templater('.super-block', {
+      tags: {
+        'super-child-strong': '<strong>{{html}}</strong>'
+      }
+    });
+
+    templater('body', {
+      tags: {
+        'panel': '<div class="panel"><div class="panel-heading">{{heading}}</div><div class="panel-body">{{html}}</div></div>',
+        'bootstrap_button': '<button class="{{class}}" type="{{type}}" aria-label="{{aria-label}}">{{html}}</button>',
+        'bootstrap_link': '<a class="btn btn--default" href="#" role="button">Some Another Text</a>',
+        'super-child-strong': '<i>{{html}}</i>'
+      }
+    });
+  </script>
 </body>
 
 </html>
