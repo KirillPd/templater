@@ -16,8 +16,8 @@
       return;
     }
 
-    run(child, tag, template);
     child.outerHTML = render(template, child);
+    run(parent, tag, template);
   }
 
   function findTags(element, tags) {
@@ -39,17 +39,11 @@
   }
 })(jQuery);
 
-$('.super-block').templater({
-  tags: {
-    'super-child-strong': '<strong>{{html}}</strong>'
-  }
-});
-
-$(document).templater({
-  tags: {
-    'panel': '<div class="panel"><div class="panel-heading">{{heading}}</div><div class="panel-body">{{html}}</div></div>',
-    'bootstrap_button': '<button class="{{class}}" type="{{type}}" aria-label="{{aria-label}}">{{html}}</button>',
-    'bootstrap_link': '<a class="btn btn--default" href="#" role="button">Some Another Text</a>',
-    'super-child-strong': '<i>{{html}}</i>'
-  }
-});
+// $(document).templater({
+//   tags: {
+//     'panel': '<div class="panel"><div class="panel-heading">{{heading}}</div><div class="panel-body">{{html}}</div></div>',
+//     'bootstrap_button': '<button class="{{class}}" type="{{type}}" aria-label="{{aria-label}}">{{html}}</button>',
+//     'bootstrap_link': '<a class="btn btn--default" href="#" role="button">Some Another Text</a>',
+//     'super-child-strong': '<i>{{html}}</i>'
+//   }
+// });

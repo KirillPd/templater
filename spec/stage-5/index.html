@@ -1,0 +1,72 @@
+<html>
+
+<head>
+  <title>Mocha</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../bower_components/mocha/mocha.css" />
+  <style>
+    .btn {
+      color: #fff;
+    }
+
+    .btn--red {
+      background-color: red;
+    }
+
+    .btn--orange {
+      background-color: orange;
+    }
+
+    .btn--blue {
+      background-color: blue;
+    }
+
+    .btn--default {
+      display: inline-block;
+      padding: 5px;
+      border-radius: 4px;
+      border: 1px solid blue;
+      background-color: skyblue;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../../bower_components/mocha/mocha.js"></script>
+  <script>
+    mocha.setup('bdd');
+  </script>
+  <script src="../../bower_components/chai/chai.js"></script>
+  <script>
+    var assert = chai.assert;
+    var expect = chai.expect;
+    var should = chai.should();
+  </script>
+
+  <div id="mocha"></div>
+
+  <panel heading="Outer Panel">
+    <div>Some outer content</div>
+    <panel heading="Inner Panel">
+      <div>Some Inner content</div>
+      <bootstrap_button class="btn btn--red some-class" type="submit" aria-label="Don't use it!">
+        Some Text123
+        <panel heading="Panel inside a button">
+          Hello there! :D
+        </panel>
+      </bootstrap_button>
+    </panel>
+  </panel>
+  <script src="../../src/templater.js"></script>
+  <script src="spec.js"></script>
+  <script>
+    //if (navigator.userAgent.indexOf('PhantomJS') === -1) {
+    mocha.run();
+    //}
+  </script>
+</body>
+
+</html>
